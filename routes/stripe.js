@@ -125,8 +125,8 @@ router.post("/create-checkout-session", async (req, res) => {
             line_items,
             mode: "payment",
             customer: customer.id,
-            success_url: `https://main--brilliant-cupcake-5560ea.netlify.app/checkout-success`,
-            cancel_url: `https://main--brilliant-cupcake-5560ea.netlify.app/cart`,
+            success_url: `${process.env.CLIENT_URL}/checkout-success`,
+            cancel_url: `${process.env.CLIENT_URL}/cart`,
         });
 
         res.json({ url: session.url, totalAmount });
